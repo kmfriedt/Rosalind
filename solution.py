@@ -8,11 +8,28 @@ from rosalind.equality import all_equals
 
 class Solution():
     def __init__(self, solve, problem_prefix):
+        """Initializer
+        
+        Arguments:
+            solve {function} -- the solve function should accept a string dataset, and return a solution as a string
+            problem_prefix {string} -- the numerical prefix of the problem
+        """
 
         self._solve = lambda x: str(solve(x))
         self.problem_prefix = problem_prefix
 
     def solve(self, test=False):
+        """
+        Solves a rosalind problem.
+        
+        
+        Keyword Arguments:
+            test {bool} -- [If test==False, uses data from data/input,
+                            and writes output to data/output.
+                            Else, uses data from test_data/input,
+                            and prints results to console.] (default: {False})
+        """
+
         if test:
             with open(f'./test_data/input/{self.problem_prefix}.txt') as f_in:
                 sample_in = f_in.read()
